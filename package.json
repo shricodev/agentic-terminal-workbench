@@ -1,0 +1,94 @@
+{
+  "name": "composio-agent",
+  "version": "1.0.10",
+  "description": "Composio Agent CLI for interacting with LLMs.",
+  "author": "Composio Team",
+  "repository": "composio/composio-agent",
+  "license": "MIT",
+  "type": "module",
+  "source": "./src/index.ts",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/index.js",
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    }
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "del build",
+    "prebuild": "run-s clean",
+    "predev": "run-s clean",
+    "pretest": "run-s build",
+    "docs": "typedoc",
+    "cli": "NODE_NO_WARNINGS=1 tsx src/cli.ts",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "test": "run-p test:*",
+    "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
+  },
+  "dependencies": {
+    "@composio/core": "^0.3.4",
+    "@composio/openai-agents": "^0.3.4",
+    "@openai/agents": "^0.3.7",
+    "cac": "^6.7.14",
+    "chalk": "^5.6.2",
+    "conf": "^15.0.2",
+    "dotenv": "^17.2.3",
+    "eventsource-parser": "^3.0.6",
+    "keyv": "^5.5.5",
+    "openai": "^6.16.0",
+    "ora": "^9.0.0",
+    "p-timeout": "^7.0.1",
+    "quick-lru": "^7.3.0",
+    "read-pkg-up": "^11.0.0",
+    "tiktoken": "^1.0.22",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@keyv/redis": "^5.1.5",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^25.0.6",
+    "@types/uuid": "^11.0.0",
+    "del-cli": "^7.0.0",
+    "dotenv-safe": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.7.4",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typedoc": "^0.28.16",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "5.9.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "chat",
+    "gpt",
+    "gpt-3",
+    "gpt3",
+    "gpt4",
+    "chatbot",
+    "machine learning",
+    "conversation",
+    "conversational ai",
+    "ai",
+    "ml",
+    "bot"
+  ]
+}
